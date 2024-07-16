@@ -1,0 +1,120 @@
+* {
+    padding: inherit;
+    margin: inherit;
+    box-sizing: border-box;
+    font: inherit;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.calculator-container {
+    margin: auto;
+    aspect-ratio: 9 / 16;
+    min-height: 600px;
+    max-height: 1000px;
+    align-items: stretch;
+    justify-content: safe center;
+    border: 5px outset #ece3d0;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #FBE5CC 0%, #F3F1ED 100%); 
+    padding: 20px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2fr repeat(5, 1fr);
+    grid-template-areas:
+        "display      display       display   display"
+        "clear        percentage    delete    divide"
+        "seven        eight         nine      multiply"
+        "four         five          six       subtract"
+        "one          two           three     add"
+        "double-zero  single-zero   decimal   equal";
+    font-size: 1.5rem;
+
+    grid-gap: 2px 5px;
+}
+
+.btn, .display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.display {
+    padding: 0;
+    grid-area: display;
+    height: 90%;
+    border-radius: 10px;
+    background-color: #bdbdbd;
+    
+    border: 0.5px solid #9c9b9b;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.display-content {
+    display: grid;
+    grid-template-areas: "inline-operations inline-operations ."
+                         "inline-operations inline-operations ."
+                         ". result-label result-data";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100%;
+    padding: 5px;
+}
+
+.inline-operations {
+    text-align: left;
+    grid-area: inline-operations;
+    margin-right: auto;
+    width: 90%;
+    padding: 20px;
+}
+
+.result-label {
+    grid-area: result-label;
+    /* justify-self: center; */
+}
+
+
+.result-data {
+    grid-area: result-data;
+    /* justify-self: right; */
+}
+
+.btn {
+    height: 65%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #9c9b9b;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.clear {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+.equal {
+    background: rgba(29, 198, 13, 0.767);
+}
